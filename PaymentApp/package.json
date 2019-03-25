@@ -1,0 +1,35 @@
+{
+  "name": "paymentapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farazahmed2197/orderApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farazahmed2197/orderApp/issues"
+  },
+  "homepage": "https://github.com/farazahmed2197/orderApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "eyes": "^0.1.8",
+    "ip": "^1.1.5",
+    "jwt-decode": "^2.2.0",
+    "logger": "0.0.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.10",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
