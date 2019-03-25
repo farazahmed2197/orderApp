@@ -5,7 +5,8 @@ const serviceAccount = require('./util/accountKey.json');
 //FireStore Setup
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://orderapp-264eb.firebaseio.com"
+  databaseURL: "https://orderapp-264eb.firebaseio.com",
+  
 });
 
 //to access db
