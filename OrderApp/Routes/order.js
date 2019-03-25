@@ -7,6 +7,8 @@ router.post('/createOrder', async (req, res) => {
     let userId = req.body.userId
     let products = req.body.products
     let amount = req.body.amount
+    let cardNumber = req.body.cardNumber
+    let csv = req.body.csv
 
     let ref = orderRef.doc()
     let order = {
@@ -28,6 +30,8 @@ router.post('/createOrder', async (req, res) => {
             error : err
         })
     })
+
+    makePayment(cardNumber, csv, amount)
     
 })
 
@@ -74,14 +78,26 @@ router.get('/checkStatus/:orderId', async (req, res) => {
     })
     
 })
-// app.get('<Your Route>', function(req, res){
-//     request('<API Call>', function (error, response, body) {
-//       if (!error && response.statusCode == 200) {
-//         var info = JSON.parse(body)
-//         // do more stuff
-//         res.send(info);
-//       }
-//     })
-//   });
+
+async function makePayment(cardNumber, csv , amount) {
+    const params = {
+      url: "localhost:4000/payment",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cardNumber, csv, amount
+      })
+    };
+    return new Promise(function(resolve, reject) {
+      request.post(params, function(err, res, body) {
+        if (err) {
+          resolve(err);
+          console.log("------error------", err);
+        } else {
+          resolve(JSON.parse(body))
+          console.log("------PAYMENT PROCESS COMPLETED--------" + body + res);
+        }
+      });
+    });
+   }
 
 module.exports = router

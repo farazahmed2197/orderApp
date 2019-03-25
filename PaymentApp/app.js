@@ -9,9 +9,6 @@ var cors = require('cors')
 
 
 app.use(cors())
-//require routes
-const userRoute = require('./Routes/user');
-const orderRoute = require('./Routes/order');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,9 +26,12 @@ app.use((req, res, next) => {
     next();
   });
 
-//forward to routes
-app.use('/user', userRoute)
-app.use('/order', orderRoute)
+//payment route
+
+app.post('/payment', (req, res) => {
+  
+})
+
 //Error Handlers    ///////////
 app.use((req, res, next) => {
     const error = new Error('not found');
